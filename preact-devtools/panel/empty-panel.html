@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Preact Devtools Extension</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				margin: 0;
+			}
+
+			:root {
+				--color-text: #333;
+			}
+
+			#root {
+				height: 100vh;
+			}
+
+			#fallback {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				flex: 1;
+				justify-content: center;
+				align-items: center;
+				color: var(--color-text);
+			}
+		</style>
+		<!-- Paths must be relative to HTML file -->
+		<link rel="stylesheet" href="panel.css" />
+		<script src="panel.js"></script>
+	</head>
+	<body>
+		<!--
+			This file will be injected as soon as the
+			devtools are open, regardless of weather 
+			Preact was found on the page. We'll create
+			the actual tab in `panel.ts` programatically
+			on detection. On tab creation we have to
+			specify an html file and it MUST NOT be the
+			same as the already loaded one. The actual
+			html that will be loaded later is `panel.html`.
+		-->
+		<div id="root">
+			<div id="fallback">
+				Unable to find Preact on the page.
+			</div>
+		</div>
+	</body>
+</html>
